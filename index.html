@@ -19,12 +19,21 @@
   <br>
 
   <img id="picture" src="ChatGPT Image May 19, 2026, 07_12_58 PM.png" alt="Redeem Image">
-
+<audio id="song" src="song.mp3"></audio>
   <script>
     function showPicture() {
       document.getElementById("picture").style.display = "block";
     }
   </script>
 
+<script>
+  function redeem() {
+    document.getElementById("picture").style.display = "block";
+
+    const song = document.getElementById("song");
+    song.currentTime = 0;
+    song.play();
+  }
+</script>
 </body>
 </html>
