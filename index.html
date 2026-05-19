@@ -24,23 +24,30 @@ body {
 </head>
 <body>
 
-  <button onclick="showPicture()">reedem 30lp</button>
+  <button onclick="redeem()">reedem 30lp</button>
 
   <br>
 
   <img id="picture" src="ChatGPT Image May 19, 2026, 07_12_58 PM.png" alt="Redeem Image">
-<audio id="song" src="song.mp3"></audio>
-  <script>
-    function redeem() {
-  document.getElementById("picture").style.display = "block";
+  
+<audio id="song" src="song.mp3" preload="auto"></audio>
 
-  const song = document.getElementById("song");
-  song.currentTime = 0;
-  song.play();
+<script>
+  function redeem() {
+    document.getElementById("picture").style.display = "block";
 
-  document.querySelector("button").style.display = "none";
-}
-  </script>
+    const song = document.getElementById("song");
+    song.volume = 1;
+    song.currentTime = 0;
+
+    song.play().catch(error => {
+      console.log("Audio could not play:", error);
+      alert("Song could not play. Check that the file name is correct and the song file is in the same folder.");
+    });
+
+    document.querySelector("button").style.display = "none";
+  }
+</script>
 
 
 </body>
