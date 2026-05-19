@@ -2,53 +2,52 @@
 <html>
 <head>
   <title>Redeem 30LP</title>
+
   <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
 
 
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-    
-   
     img {
       display: none;
-      margin-top: 30px;
       max-width: 90%;
+      max-height: 90vh;
       border-radius: 12px;
     }
   </style>
 </head>
 <body>
 
-  <button onclick="redeem()">reedem 30lp</button>
-
-  <br>
+  <button id="redeemButton" onclick="redeem()">reedem 30lp</button>
 
   <img id="picture" src="ChatGPT Image May 19, 2026, 07_12_58 PM.png" alt="Redeem Image">
-  
-<audio id="song" src="song.mp3" preload="auto"></audio>
 
-<script>
-  function redeem() {
-    document.getElementById("picture").style.display = "block";
+  <audio id="song" src="song.mp3" preload="auto"></audio>
 
-    const song = document.getElementById("song");
-    song.volume = 1;
-    song.currentTime = 0;
+  <script>
+    function redeem() {
+      const button = document.getElementById("redeemButton");
+      const picture = document.getElementById("picture");
+      const song = document.getElementById("song");
 
-    song.play().catch(error => {
-      console.log("Audio could not play:", error);
-      alert("Song could not play. Check that the file name is correct and the song file is in the same folder.");
-    });
+      button.style.display = "none";
+      picture.style.display = "block";
 
-    document.querySelector("button").style.display = "none";
-  }
-</script>
+      song.volume = 1;
+      song.currentTime = 0;
 
+      song.play().catch(function(error) {
+        alert("Song could not play. Make sure song.mp3 is in the same folder as this HTML file.");
+        console.log(error);
+      });
+    }
+  </script>
 
 </body>
 </html>
